@@ -147,6 +147,6 @@ EnvironmentKit is available under the MIT license. See the [LICENSE][License] fi
 [Sponsors]: https://github.com/sponsors/danielsaidi
 
 [Documentation]: https://danielsaidi.github.io/EnvironmentKit
-[Getting-Started]: https://danielsaidi.github.io/EnvironmentKit/documentation/Environment/getting-started
+[Getting-Started]: https://danielsaidi.github.io/EnvironmentKit/documentation/environmentkit/getting-started
 
 [License]: https://github.com/danielsaidi/EnvironmentKit/blob/master/LICENSE
