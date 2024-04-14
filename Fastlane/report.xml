@@ -5,22 +5,127 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.000247">
+      <testcase classname="fastlane.lanes" name="00: Verifying fastlane version" time="0.000225">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000549">
+      <testcase classname="fastlane.lanes" name="01: default_platform" time="8.9e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to ios test_ios lane" time="9.4e-05">
+      <testcase classname="fastlane.lanes" name="02: Switch to ios version_validate lane" time="8.3e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cd .. &amp;&amp; xcodebuild test -scheme EnvironmentKit -derivedDataPath .build -destination &apos;platform=iOS Simulator,name=iPhone 15,OS=17.2&apos; -enableCodeCoverage YES;" time="32.358275">
+      <testcase classname="fastlane.lanes" name="03: ensure_git_status_clean" time="0.01256">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="04: ensure_git_branch" time="0.009863">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="05: swiftlint" time="0.16223">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: Switch to ios build_all lane" time="0.001932">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: Switch to ios build lane" time="6.6e-05">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: cd .. &amp;&amp; xcodebuild -scheme EnvironmentKit -derivedDataPath .build -destination &apos;generic/platform=iOS&apos;;" time="0.888823">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: Switch to ios build lane" time="0.000139">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: cd .. &amp;&amp; xcodebuild -scheme EnvironmentKit -derivedDataPath .build -destination &apos;generic/platform=OS X&apos;;" time="1.073838">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: Switch to ios build lane" time="0.000129">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="12: cd .. &amp;&amp; xcodebuild -scheme EnvironmentKit -derivedDataPath .build -destination &apos;generic/platform=tvOS&apos;;" time="0.879638">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="13: Switch to ios build lane" time="0.000128">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="14: cd .. &amp;&amp; xcodebuild -scheme EnvironmentKit -derivedDataPath .build -destination &apos;generic/platform=watchOS&apos;;" time="0.887727">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="15: Switch to ios build lane" time="0.000397">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="16: cd .. &amp;&amp; xcodebuild -scheme EnvironmentKit -derivedDataPath .build -destination &apos;generic/platform=xrOS&apos;;" time="0.893361">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="17: Switch to ios test_all lane" time="0.000115">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="18: Switch to ios test_ios lane" time="6.0e-05">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="19: cd .. &amp;&amp; xcodebuild test -scheme EnvironmentKit -derivedDataPath .build -destination &apos;platform=iOS Simulator,name=iPhone 15,OS=17.2&apos; -enableCodeCoverage YES;" time="31.999175">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="20: version_bump_podspec" time="0.000632">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="21: git_commit" time="0.023428">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="22: add_git_tag" time="0.021404">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="23: push_git_tags" time="2.481774">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="24: push_to_git_remote" time="1.677889">
         
       </testcase>
     

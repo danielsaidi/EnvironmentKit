@@ -8,20 +8,80 @@
 
 import SwiftUI
 
-/// This protocol can be implemented by any type that can be
-/// injected into the environment.
+/// This protocol can be implemented by any type that should
+/// be used as an environment value.
+///
+/// To implement this protocol, just provide a parameterless
+/// ``init()`` and a ``keyPath`` value that returns a custom
+/// `EnvironmentValues` property:
+///
+/// ```swift
+/// struct MyViewStyle: EnvironmentValue {
+///     static var keyPath: EnvironmentKeyPath { \.myViewStyle }
+/// }
+///
+/// extension EnvironmentValues {
+///     var myViewStyle: MyViewStyle {
+///         get { get() } set { set(newValue) }
+///     }
+/// }
+/// ```
+///
+/// You can now inject custom values into the environment by
+/// using the ``SwiftUI/View/environment(_:)`` modifier that
+/// doesn't require a keypath.
+///
+/// To make things even easier, you can also define a custom
+/// view modifier for your value:
+///
+/// ```swift
+/// extension View {
+///     func myViewStyle(_ style: MyViewStyle) -> some View {
+///         environment(style)
+///     }
+/// }
+/// ```
+///
+/// You can now apply a custom style to any views, like this:
+///
+/// ```swift
+/// MyView()
+///     .myViewStyle(...)
+/// ```
+///
+/// Views can use `@Environment` with the custom key path to
+/// access injected values, like this:
+///
+/// ```swift
+/// struct MyView: View {
+///
+///     @Environment(\.myViewStyle)
+///
+///     var body: some View { ... }
+/// }
+/// ```
+///
+/// If no value has been injected, the default value is used.
 public protocol EnvironmentValue {
+    
+    /// Environment values must provide a default initializer.
+    init()
+    
+    /// The `EnvironmentValue` keypath to use.
+    static var keyPath: EnvironmentKeyPath { get }
+
+    /// This typealias defines an automatically resolved key.
+    typealias EnvironmentKey = EnvironmentValueKey<Self>
+    
+    /// This typealias refers to an environment key path.
+    typealias EnvironmentKeyPath = WritableKeyPath<EnvironmentValues, Self>
+}
+
+public extension EnvironmentValue {
     
     /// A default value to use, when no value has been added
     /// to the the environment.
-    static var defaultValue: Self { get }
-    
-    /// The environment values keypath to use to add a value
-    /// to the environment.
-    static var keyPath: EnvironmentKeyPath { get }
-    
-    typealias EnvironmentKey = EnvironmentValueKey<Self>
-    typealias EnvironmentKeyPath = WritableKeyPath<EnvironmentValues, Self>
+    static var defaultValue: Self { .init() }
 }
 
 /// This type is used by ``EnvironmentValue`` to define keys.
@@ -45,7 +105,7 @@ public extension EnvironmentValues {
     }
 }
 
-extension View {
+public extension View {
 
     /// Inject an ``EnvironmentValue`` into the environment.
     func environment<T: EnvironmentValue>(
@@ -60,13 +120,8 @@ extension View {
 
 private struct MyView: View {
     
-    init(
-        style: MyViewStyle = .defaultValue
-    ) {
-        self.style = style
-    }
-    
-    private let style: MyViewStyle
+    @Environment(\.myViewStyle)
+    private var style
     
     var body: some View {
         style.color
@@ -75,11 +130,7 @@ private struct MyView: View {
 
 private struct MyViewStyle: EnvironmentValue {
     
-    init(color: Color = .blue) {
-        self.color = color
-    }
-    
-    var color: Color
+    var color: Color = .blue
 }
 
 private extension MyViewStyle {
@@ -105,4 +156,5 @@ private extension EnvironmentValues {
 #Preview {
     
     MyView()
+        .myViewStyle(.init(color: .red))
 }
