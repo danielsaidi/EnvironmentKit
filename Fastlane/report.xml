@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="00: Verifying fastlane version" time="0.000519">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="01: default_platform" time="0.000119">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="02: Switch to ios build lane" time="0.000134">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="03: cd .. &amp;&amp; xcodebuild -scheme ApiKit -derivedDataPath .build -destination &apos;generic/platform=iOS&apos;;" time="48.544651">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="04: Switch to ios build lane" time="0.000199">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="05: cd .. &amp;&amp; xcodebuild -scheme ApiKit -derivedDataPath .build -destination &apos;generic/platform=OS X&apos;;" time="37.893333">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: Switch to ios build lane" time="0.000158">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: cd .. &amp;&amp; xcodebuild -scheme ApiKit -derivedDataPath .build -destination &apos;generic/platform=tvOS&apos;;" time="43.559222">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: Switch to ios build lane" time="0.000198">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: cd .. &amp;&amp; xcodebuild -scheme ApiKit -derivedDataPath .build -destination &apos;generic/platform=watchOS&apos;;" time="47.340235">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: Switch to ios build lane" time="0.000167">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: cd .. &amp;&amp; xcodebuild -scheme ApiKit -derivedDataPath .build -destination &apos;generic/platform=xrOS&apos;;" time="4.285229">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
