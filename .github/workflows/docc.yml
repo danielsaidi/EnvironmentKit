@@ -46,7 +46,7 @@ jobs:
             --output-path docs \
             --hosting-base-path 'EnvironmentKit';
             
-          echo "<script>window.location.href += \"/documentation/Environment\"</script>" > docs/index.html;
+          echo "<script>window.location.href += \"/documentation/environmentkit\"</script>" > docs/index.html;
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
