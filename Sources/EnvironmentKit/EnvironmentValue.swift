@@ -68,13 +68,13 @@ public protocol EnvironmentValue {
     init()
     
     /// The `EnvironmentValue` keypath to use.
-    static var keyPath: EnvironmentKeyPath { get }
+    static var keyPath: EnvironmentPath { get }
 
     /// This typealias defines an automatically resolved key.
     typealias EnvironmentKey = EnvironmentValueKey<Self>
     
     /// This typealias refers to an environment key path.
-    typealias EnvironmentKeyPath = WritableKeyPath<EnvironmentValues, Self>
+    typealias EnvironmentPath = WritableKeyPath<EnvironmentValues, Self>
 }
 
 public extension EnvironmentValue {
@@ -135,8 +135,7 @@ private struct MyViewStyle: EnvironmentValue {
 
 private extension MyViewStyle {
     
-    static var defaultValue = Self()
-    static var keyPath: EnvironmentKeyPath { \.myViewStyle }
+    static var keyPath: EnvironmentPath { \.myViewStyle }
 }
 
 private extension View {

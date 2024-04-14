@@ -42,7 +42,7 @@ You just need this:
 ```swift
 struct MyStyle: EnvironmentValue {  
     
-    static var keyPath: EnvironmentKeyPath { \.myStyle }    
+    static var keyPath: EnvironmentPath { \.myStyle }    
 }
 
 extension EnvironmentValues {
