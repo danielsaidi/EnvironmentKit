@@ -1,5 +1,5 @@
 <p align="center">
-    <img src ="Resources/Logo_GitHub.png" alt="EnvironmentKit Logo" title="EnvironmentKit" />
+    <img src ="Resources/Logo_Rounded.png" alt="EnvironmentKit Logo" title="EnvironmentKit" />
 </p>
 
 <p align="center">
