@@ -82,6 +82,9 @@ public extension EnvironmentValue {
     /// A default value to use, when no value has been added
     /// to the the environment.
     static var defaultValue: Self { .init() }
+    
+    /// The automatic value for the current platform.
+    static var automatic: Self { defaultValue }
 }
 
 /// This type is used by ``EnvironmentValue`` to define keys.
@@ -131,18 +134,8 @@ private struct MyView: View {
 private struct MyViewStyle: EnvironmentValue {
     
     var color: Color = .blue
-}
-
-private extension MyViewStyle {
     
     static var keyPath: EnvironmentPath { \.myViewStyle }
-}
-
-private extension View {
-
-    func myViewStyle(_ style: MyViewStyle) -> some View {
-        environment(style)
-    }
 }
 
 private extension EnvironmentValues {
@@ -152,8 +145,17 @@ private extension EnvironmentValues {
     }
 }
 
+private extension View {
+
+    func myViewStyle(
+        _ style: MyViewStyle = .automatic
+    ) -> some View {
+        environment(style)
+    }
+}
+
 #Preview {
     
     MyView()
-        .myViewStyle(.init(color: .red))
+        .myViewStyle(.automatic)
 }
