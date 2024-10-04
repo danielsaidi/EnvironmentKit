@@ -1,12 +1,32 @@
 # ``EnvironmentKit``
 
-EnvironmentKit is a SwiftUI SDK that lets you create custom SwiftUI environment values with less code.
+EnvironmentKit is a SwiftUI SDK that lets you define custom SwiftUI environment values with less code.
 
 ![EnvironmentKit logotype](Logo)
 
-EnvironmentKit is a SwiftUI SDK that lets you define custom SwiftUI environment values with less code.
 
-Instead of this standard boilerplate code:
+## ‼️ Important Information
+
+Xcode 16 added support for the new `@Entry` type, which makes it a lot easier than before to create various value types, which makes this SDK less useful than it was before.
+
+While this SDK remains a fun experiment with how far we could push Swift to make it easier to create custom environment values, this will most probably be left as is until September 2025, at which it will be deleted.
+
+
+## Installation
+
+EnvironmentKit can be installed with the Swift Package Manager:
+
+```
+https://github.com/danielsaidi/EnvironmentKit.git
+```
+
+You can also just copy the `EnvironmentValue.swift` file to your project, instead of using the package.
+
+
+
+## Getting Started
+
+Without `EnvironmentKit`, you have to write this boilerplate code for each custom environment value:
 
 ```swift
 public extension MyStyle {
@@ -37,10 +57,10 @@ public extension View {
 }
 ```
 
-You just need this:
+With `EnvironmentKit`, you just need to implement `EnvironmentValue` and add a little extra code:
 
 ```swift
-struct MyStyle: EnvironmentValue {  
+struct MyStyle: EnvironmentValue { 
     
     static var keyPath: EnvironmentPath { \.myStyle }    
 }
@@ -60,21 +80,10 @@ extension View {
 }
 ```
 
+This makes it faster and easier to create custom environment values.
 
 
-## Installation
-
-EnvironmentKit can be installed with the Swift Package Manager:
-
-```
-https://github.com/danielsaidi/EnvironmentKit.git
-```
-
-You can also just copy the `EnvironmentValue.swift` file to your project, instead of using the package.
-
-
-
-## Getting Started
+## How does it work?
 
 To define a custom environment value with EnvironmentKit, you just have to make your type implement `EnvironmentValue` by providing a default initializer (or default property values) and a `keyPath`:
 
@@ -82,7 +91,7 @@ To define a custom environment value with EnvironmentKit, you just have to make 
 struct MyViewStyle: EnvironmentValue {
 
     var color: Color = .red
-
+    
     static var keyPath: EnvironmentKeyPath { \.myViewStyle }   
 }
 
@@ -114,7 +123,7 @@ MyView()
     .myViewStyle(.customStyle)
 ```
 
-Your views can access the injected style with the `@Environment` attribute and the custom key path, and will default the the default value if no value is injected:
+Views can access injected values with the `@Environment` attribute and the custom key path:
 
 ```
 struct MyView: View {
