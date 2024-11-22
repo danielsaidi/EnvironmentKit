@@ -15,14 +15,38 @@
 
 ## About EnvironmentKit
 
-EnvironmentKit is a SwiftUI SDK that lets you define custom SwiftUI environment values with less code.
+EnvironmentKit lets you define custom SwiftUI environment values with less code.
 
 
 ## ‼️ Important Information
 
-Xcode 16 added support for the new `@Entry` type, which makes it a lot easier than before to create various value types, which makes this SDK less useful than it was before.
+Xcode 16 added support for the new `@Entry` type, which makes it a lot easier to create environment values, e.g.:
 
-While this SDK remains a fun experiment with how far we could push Swift to make it easier to create custom environment values, this will most probably be left as is until September 2025, at which it will be deleted.
+```swift
+public extension Keyboard {
+    
+    struct SomeValue: Equatable {
+       ...
+    }
+}
+
+public extension View {
+
+    /// Apply a `SomeValue` environment value.
+    func someValue(_ value: SomeValue) -> some View {
+        self.environment(\.someValue, value)
+    }
+}
+
+public extension EnvironmentValues {
+
+    /// Apply a `SomeValue` environment value.
+    @Entry var someValue = .init()
+}
+
+```
+
+This addition makes this SDK less valuable than it was before WWDC 24. While it remains a fun experiment, it will be archived and deleted after September 2025.
 
 
 
@@ -40,7 +64,7 @@ You can also just copy the `EnvironmentValue.swift` file to your project, instea
 
 ## Getting Started
 
-Without `EnvironmentKit`, you have to write this boilerplate code for each custom environment value:
+Without `EnvironmentKit`, you have to write all this boilerplate code for each custom environment value:
 
 ```swift
 public extension MyStyle {

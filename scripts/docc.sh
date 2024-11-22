@@ -17,6 +17,7 @@ TARGET_LOWERCASED=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 swift package resolve;
 
 xcodebuild docbuild -scheme $1 -derivedDataPath /tmp/docbuild -destination 'generic/platform=iOS';
+xcodebuild docbuild -scheme $1 -derivedDataPath /tmp/docbuild -destination 'generic/platform=macOS';
 
 $(xcrun --find docc) process-archive \
   transform-for-static-hosting /tmp/docbuild/Build/Products/Debug-iphoneos/$1.doccarchive \
